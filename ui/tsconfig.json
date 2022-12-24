@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"baseUrl": "src",
+		"target": "esnext",
+		"allowJs": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node",
+		"module": "esnext",
+		"strict": true,
+		"jsx": "react",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"paths": {
+			"~Bootstrap": ["./Bootstrap/index.ts"],
+			"~Bootstrap/*": ["./Bootstrap/*"],
+			"~Components/*": ["./Components/*"],
+			"~Pages/*": ["./Pages/*"],
+			"~Shared/*": ["./Shared/*"]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"]
+}
