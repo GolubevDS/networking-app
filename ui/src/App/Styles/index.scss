@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@0;1&display=swap');
+@import 'normalize';
+@import 'reset';
+@import 'themes';
+
+body {
+	background: var(--background-color);
+	font-family: 'Nunito Sans', sans-serif;
+}
+

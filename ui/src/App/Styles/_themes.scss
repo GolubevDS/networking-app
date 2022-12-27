@@ -1,0 +1,22 @@
+@import 'color-pallete';
+
+:root {
+	--background-color:       #{$gray-5};
+	--background-color-light: #{$gray-4};
+	--background-color-dark:  #{$black};
+	--border-color:           #{$gray-4};
+
+	--icon-color-light:       #{$gray-1};
+	--icon-color-dark:        #{$gray-5};
+
+	--title:                  #{$white};
+	--subheadline:            #{$gray-1};
+	--body:                   #{$gray-1};
+
+	--primary:                #{$green-3};
+	--primary-hover:          #{$green-3};
+	--primary-focus:          #{$green-3};
+	--primary-active:         #{$green-3};
+	--primary-disabled:       #{$green-3};
+}
+

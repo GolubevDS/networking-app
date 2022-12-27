@@ -2,6 +2,7 @@ import * as path              from 'node:path';
 import { fileURLToPath }      from 'node:url';
 import HtmlWebpackPlugin      from 'html-webpack-plugin';
 import ESLintWebpackPlugin    from 'eslint-webpack-plugin';
+import MiniCssExtractPlugin   from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 const
@@ -10,8 +11,9 @@ const
 
 export default (env, argv) => {
 	const
-		mode    = argv.mode || 'production',
-		devtool = mode === 'production' ? undefined : 'source-map';
+		mode         = argv.mode || 'production',
+		isProduction = (mode === 'production'),
+		devtool      = isProduction ? undefined : 'source-map';
 
 	return {
 		mode,
@@ -31,7 +33,10 @@ export default (env, argv) => {
 		},
 		resolve: {
 			alias: {
-				'~Bootstrap': path.resolve(__dirname, 'src/Bootstrap'),
+				'~App': path.resolve(__dirname, 'src/App'),
+				'~Assets': path.resolve(__dirname, 'src/Assets'),
+				'~Components': path.resolve(__dirname, 'src/Components'),
+				'~Pages': path.resolve(__dirname, 'src/Pages'),
 			},
 			extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		},
@@ -51,14 +56,29 @@ export default (env, argv) => {
 						},
 					},
 				},
+				{
+					test: /\.scss$/,
+					use: [
+						!isProduction
+							? 'style-loader'
+							: MiniCssExtractPlugin.loader,
+						'css-loader',
+						'sass-loader',
+					],
+				},
+				{
+					test: /\.svg$/i,
+					issuer: /\.[jt]sx?$/,
+					use: ['@svgr/webpack'],
+				},
 			],
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
-				title: 'Networking app',
 				template: './src/index.html',
 			}),
 			new CleanWebpackPlugin(),
+			new MiniCssExtractPlugin(),
 			new ESLintWebpackPlugin({
 				extensions: ['js', 'jsx', 'ts', 'tsx'],
 			}),

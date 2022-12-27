@@ -57,7 +57,11 @@
 					"index",
 					"object",
 					"type"
-				]
+				],
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
 			}
 		],
 		"import/no-unresolved": "off"
