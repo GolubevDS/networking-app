@@ -1,0 +1,12 @@
+@import 'base-colors.css';
+
+:root {
+	--color-accent-background: hsl(var(--color-black));
+	--color-line:              hsl(var(--color-gray));
+	--color-background:        hsl(var(--color-dark));
+	--color-text:              hsla(var(--color-white) / .8);
+
+	--primary:                 hsl(var(--color-green));
+	--primary-hover:           hsla(var(--color-green) / .7);
+}
+

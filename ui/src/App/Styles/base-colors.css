@@ -1,0 +1,15 @@
+:root {
+	color-scheme:   light dark;
+
+	--color-white:  240 3% 94%;
+	--color-black:  220 14% 8%;
+
+	--color-light:  223 30% 73%;
+	--color-dark:   223 11% 12%;
+
+	--color-green:  167 97% 39%;
+	--color-gray:   219, 14%, 19%;
+	--color-red:    6 94% 69%;
+	--color-yellow: 44 100% 67%;
+	--color-blue:   212, 100%, 65%;
+}

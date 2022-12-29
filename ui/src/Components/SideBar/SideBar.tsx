@@ -1,5 +1,5 @@
-import React             from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React                     from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Calendar from '~Assets/Icon/Calendar.svg';
 import Camera   from '~Assets/Icon/Camera.svg';
@@ -7,7 +7,7 @@ import Contacts from '~Assets/Icon/Contacts.svg';
 import Logo     from '~Assets/Icon/Logo.svg';
 import Settings from '~Assets/Icon/Settings.svg';
 
-import styles from './SideBar.module.scss';
+import styles from './SideBar.module.css';
 
 export const SideBar = () => {
 	return (
@@ -18,8 +18,8 @@ export const SideBar = () => {
 					<li>
 						<NavLink
 							to="/contacts"
-							className={({ isActive }) =>
-								`${styles.link} ${isActive && styles.linkActive}`
+							className={
+								({ isActive }) => isActive ? styles.linkActive : styles.link
 							}
 						>
 							<Contacts />
@@ -28,8 +28,8 @@ export const SideBar = () => {
 					<li>
 						<NavLink
 							to="room"
-							className={({ isActive }) =>
-								`${styles.link} ${isActive && styles.linkActive}`
+							className={
+								({ isActive }) => isActive ? styles.linkActive : styles.link
 							}
 						>
 							<Camera />
@@ -38,8 +38,8 @@ export const SideBar = () => {
 					<li>
 						<NavLink
 							to="/schedule"
-							className={({ isActive }) =>
-								`${styles.link} ${isActive && styles.linkActive}`
+							className={
+								({ isActive }) => isActive ? styles.linkActive : styles.link
 							}
 						>
 							<Calendar />
@@ -47,9 +47,14 @@ export const SideBar = () => {
 					</li>
 				</ul>
 			</nav>
-			<Link to="/settings">
-				<Settings className={styles.settings} />
-			</Link>
+			<NavLink
+				to="/settings"
+				className={
+					({ isActive }) => isActive ? styles.linkActive : styles.link
+				}
+			>
+				<Settings />
+			</NavLink>
 		</div>
 	);
 };

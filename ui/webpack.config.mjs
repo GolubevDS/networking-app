@@ -18,35 +18,37 @@ export default (env, argv) => {
 	return {
 		mode,
 		devtool,
-		entry: './src/index.tsx',
-		output: {
-			path: path.resolve(__dirname, './dist'),
-			filename: 'bundle.js',
+		entry:     './src/index.tsx',
+		output:    {
+			path:          path.resolve(__dirname, './dist'),
+			filename:      'bundle.js',
 			libraryTarget: 'umd',
-			clean: true,
+			clean:         true,
+			publicPath:    '/',
 		},
 		devServer: {
-			port: 3000,
-			open: true,
-			hot: true,
-			static: path.resolve(__dirname, './dist'),
+			port:               3000,
+			open:               true,
+			hot:                true,
+			static:             path.resolve(__dirname, './dist'),
+			historyApiFallback: true,
 		},
-		resolve: {
-			alias: {
-				'~App': path.resolve(__dirname, 'src/App'),
-				'~Assets': path.resolve(__dirname, 'src/Assets'),
+		resolve:   {
+			alias:      {
+				'~App':        path.resolve(__dirname, 'src/App'),
+				'~Assets':     path.resolve(__dirname, 'src/Assets'),
 				'~Components': path.resolve(__dirname, 'src/Components'),
-				'~Pages': path.resolve(__dirname, 'src/Pages'),
+				'~Pages':      path.resolve(__dirname, 'src/Pages'),
 			},
 			extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		},
-		module: {
+		module:    {
 			rules: [
 				{
-					test: /\.(ts|js)x?$/i,
+					test:    /\.(ts|js)x?$/i,
 					exclude: /node_modules/,
-					use: {
-						loader: 'babel-loader',
+					use:     {
+						loader:  'babel-loader',
 						options: {
 							presets: [
 								'@babel/preset-env',
@@ -57,23 +59,22 @@ export default (env, argv) => {
 					},
 				},
 				{
-					test: /\.scss$/,
+					test: /\.css$/,
 					use: [
 						!isProduction
 							? 'style-loader'
 							: MiniCssExtractPlugin.loader,
-						'css-loader',
-						'sass-loader',
+						'css-loader'
 					],
 				},
 				{
-					test: /\.svg$/i,
+					test:   /\.svg$/i,
 					issuer: /\.[jt]sx?$/,
-					use: ['@svgr/webpack'],
+					use:    ['@svgr/webpack'],
 				},
 			],
 		},
-		plugins: [
+		plugins:   [
 			new HtmlWebpackPlugin({
 				template: './src/index.html',
 			}),
