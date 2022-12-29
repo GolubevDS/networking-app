@@ -7,7 +7,7 @@ import { SchedulePage } from '~Pages/Schedule';
 import { SettingsPage } from '~Pages/Settings';
 
 import { AppLayout } from './AppLayout';
-import './index.scss';
+import './index.css';
 
 export const App = () => {
 	return (

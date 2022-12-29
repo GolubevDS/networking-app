@@ -1,10 +1,11 @@
 .root {
-	width:           80px;
-	background:      var(--background-color-dark);
+	--background:    var(--color-accent-background);
+	background:      var(--background);
 	display:         flex;
 	flex-direction:  column;
 	align-items:     center;
 	justify-content: space-between;
+	width:           80px;
 }
 
 .logo {
@@ -14,7 +15,7 @@
 	height: 48px;
 }
 
-.link {
+.link, .linkActive {
 	margin:          28px 0;
 	width:           48px;
 	height:          48px;
@@ -22,25 +23,21 @@
 	display:         flex;
 	justify-content: center;
 	align-items:     center;
+}
 
-	svg {
-		fill:   var(--icon-color-light);
-		width:  24px;
-		height: 24px;
-	}
+.link > svg, .linkActive > svg {
+	width:  24px;
+	height: 24px;
+}
+
+.link > svg {
+	fill: var(--primary);
 }
 
 .linkActive {
 	background: var(--primary);
-
-	svg {
-		fill: var(--icon-color-dark);
-	}
 }
 
-.settings {
-	margin: 28px 0;
-	fill: var(--icon-color-light);
-	width:  24px;
-	height: 24px;
+.linkActive > svg {
+	fill: var(--background);
 }

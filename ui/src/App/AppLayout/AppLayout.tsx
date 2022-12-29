@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { Header }  from '~Components/Header';
 import { SideBar } from '~Components/SideBar';
 
-import styles from './AppLayout.module.scss';
+import styles from './AppLayout.module.css';
 
 export const AppLayout = () => {
 	return (
