@@ -1,0 +1,40 @@
+.root {
+	--font-size:     var(--font-size-body);
+	--line-height:   var(--font-line-height-body);
+	border:          var(--border-width) solid var(--color-line);
+	--icon-size:     var(--line-height);
+	border-radius:   6px;
+	cursor:          text;
+	padding:         .75em 1em;
+	display:         flex;
+	justify-content: flex-start;
+	align-items:     center;
+	transition:      var(--transition);
+	width:           50rem;
+}
+
+.root:focus-within {
+	border-color: var(--color-line-focus);
+}
+
+.root > svg {
+	fill:         var(--color-text-placeholder);
+	height:       var(--icon-size);
+	width:        var(--icon-size);
+	margin-right: .5em;
+	transition:   var(--transition);
+}
+
+.root:focus-within > svg {
+	fill: var(--color-text);
+}
+
+.textField {
+	font-size:   var(--font-size);
+	line-height: var(--line-height);
+	width:       100%;
+}
+
+::placeholder {
+	color: var(--color-text-placeholder);
+}

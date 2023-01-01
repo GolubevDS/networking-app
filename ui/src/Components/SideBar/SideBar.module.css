@@ -23,11 +23,13 @@
 	display:         flex;
 	justify-content: center;
 	align-items:     center;
+	transition:      var(--transition);
 }
 
 .link > svg, .linkActive > svg {
-	width:  24px;
-	height: 24px;
+	width:      24px;
+	height:     24px;
+	transition: var(--transition);
 }
 
 .link > svg {

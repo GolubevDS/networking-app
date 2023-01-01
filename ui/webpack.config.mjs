@@ -60,17 +60,25 @@ export default (env, argv) => {
 				},
 				{
 					test: /\.css$/,
-					use: [
+					use:  [
 						!isProduction
 							? 'style-loader'
 							: MiniCssExtractPlugin.loader,
-						'css-loader'
+						'css-loader',
 					],
 				},
 				{
 					test:   /\.svg$/i,
-					issuer: /\.[jt]sx?$/,
-					use:    ['@svgr/webpack'],
+					issuer: /\.(ts|js)x?$/i,
+					use:    [
+						{
+							loader:  '@svgr/webpack',
+							options: {
+								typescript: true,
+								ext:        'tsx',
+							},
+						},
+					],
 				},
 			],
 		},

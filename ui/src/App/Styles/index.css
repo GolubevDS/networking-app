@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@0;1&display=swap');
 @import 'normalize.css';
 @import 'reset.css';
+@import 'typography.css';
 @import 'theme.css';
 
+:root {
+	--transition: 150ms ease-in-out;
+}
+
+html {
+	font-size: 62.5%;
+}
+
 body {
-	color:       var(--color-text);
-	background:  var(--color-background);
-	font-family: 'Nunito Sans', sans-serif;
+	color:           var(--color-text);
+	background:      var(--color-background);
+	font-family:     var(--font-family);
+	font-size:       var(--font-size-body);
+	line-height:     var(--font-line-height-body);
+	scroll-behavior: smooth;
 }
 
