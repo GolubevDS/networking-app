@@ -1,14 +1,17 @@
 import React from 'react';
 
-import Search        from '~Assets/Icon/Search.svg';
-import { TextField } from '~Components/TextField';
+import { Search }    from '~Assets/Icons';
+import { TextInput } from '~Components/TextInput';
 
 import styles from './Header.module.css';
 
-export const Header = () => {
+/**
+ * @returns {JSX.Element} The Header JSX element.
+ */
+export const Header = (): JSX.Element => {
 	return (
 		<div className={styles.root}>
-			<TextField icon={<Search />} placeholder="Поиск..." />
+			<TextInput clearable Icon={Search} placeholder="Поиск..." />
 		</div>
 	);
 };

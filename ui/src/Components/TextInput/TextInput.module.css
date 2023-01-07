@@ -1,0 +1,62 @@
+.root {
+	--font-size:     var(--font-size-body);
+	--line-height:   var(--font-line-height-body);
+	--icon-size:     var(--line-height);
+	border:          var(--border-width) solid var(--color-border);
+	transition:      var(--transition);
+	border-radius:   6px;
+	display:         flex;
+	justify-content: flex-start;
+	align-items:     center;
+	width:           50rem;
+}
+
+.root:focus-within, .root:has(.textField:not(:placeholder-shown)) {
+	border-color: var(--color-border-focus);
+}
+
+svg {
+	height: var(--icon-size);
+	width:  var(--icon-size);
+}
+
+.label {
+	padding:         .75em 0 .75em 1em;
+	cursor:          text;
+	flex-grow:       1;
+	display:         flex;
+	justify-content: flex-start;
+	align-items:     center;
+}
+
+.label > svg {
+	fill:         var(--color-border);
+	margin-right: .5em;
+	transition:   var(--transition);
+}
+
+.label:focus-within > svg, .label:has(.textField:not(:placeholder-shown)) > svg {
+	fill: var(--color-border-focus);
+}
+
+.textField {
+	font-size:   var(--font-size);
+	line-height: var(--line-height);
+	width:       100%;
+}
+
+::placeholder {
+	color: var(--color-text-placeholder);
+}
+
+.clearInput {
+	fill:         var(--color-text);
+	transition:   var(--transition);
+	cursor:       pointer;
+	margin-left:  .5em;
+	margin-right: 1em;
+}
+
+.clearInput:hover {
+	fill: var(--primary-hover);
+}

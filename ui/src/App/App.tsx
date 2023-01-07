@@ -12,11 +12,11 @@ import './index.css';
 export const App = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<AppLayout />}>
-				<Route path="contacts" element={<ContactsPage />} />
-				<Route path="room" element={<RoomPage />} />
-				<Route path="schedule" element={<SchedulePage />} />
-				<Route path="settings" element={<SettingsPage />} />
+			<Route element={<AppLayout />} path="/">
+				<Route element={<ContactsPage />} path="contacts" />
+				<Route element={<RoomPage />} path="room" />
+				<Route element={<SchedulePage />} path="schedule" />
+				<Route element={<SettingsPage />} path="settings" />
 			</Route>
 		</Routes>
 	);
