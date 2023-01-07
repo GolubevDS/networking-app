@@ -1,15 +1,28 @@
 import React       from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Calendar from '~Assets/Icon/Calendar.svg';
-import Camera   from '~Assets/Icon/Camera.svg';
-import Contacts from '~Assets/Icon/Contacts.svg';
-import Logo     from '~Assets/Icon/Logo.svg';
-import Settings from '~Assets/Icon/Settings.svg';
+import {
+	Calendar,
+	Camera,
+	Contacts,
+	Logo,
+	Settings,
+} from '~Assets/Icons';
 
 import styles from './SideBar.module.css';
 
-export const SideBar = () => {
+/**
+ * @param {Object} params - The link's `isActive` state.
+ * @return {string} The class name.
+ */
+const getLinkClassName = ({ isActive }: { isActive: boolean }): string => (
+	isActive ? styles.linkActive : styles.link
+);
+
+/**
+ * @returns {JSX.Element} The SideBar JSX element.
+ */
+export const SideBar = (): JSX.Element => {
 	return (
 		<div className={styles.root}>
 			<Logo className={styles.logo} />
@@ -17,30 +30,24 @@ export const SideBar = () => {
 				<ul>
 					<li>
 						<NavLink
+							className={getLinkClassName}
 							to="/contacts"
-							className={
-								({ isActive }) => isActive ? styles.linkActive : styles.link
-							}
 						>
 							<Contacts />
 						</NavLink>
 					</li>
 					<li>
 						<NavLink
+							className={getLinkClassName}
 							to="room"
-							className={
-								({ isActive }) => isActive ? styles.linkActive : styles.link
-							}
 						>
 							<Camera />
 						</NavLink>
 					</li>
 					<li>
 						<NavLink
+							className={getLinkClassName}
 							to="/schedule"
-							className={
-								({ isActive }) => isActive ? styles.linkActive : styles.link
-							}
 						>
 							<Calendar />
 						</NavLink>
@@ -48,10 +55,8 @@ export const SideBar = () => {
 				</ul>
 			</nav>
 			<NavLink
+				className={getLinkClassName}
 				to="/settings"
-				className={
-					({ isActive }) => isActive ? styles.linkActive : styles.link
-				}
 			>
 				<Settings />
 			</NavLink>

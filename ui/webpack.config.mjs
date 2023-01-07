@@ -27,9 +27,8 @@ export default (env, argv) => {
 			publicPath:    '/',
 		},
 		devServer: {
-			port:               3000,
+			port:               'auto',
 			open:               true,
-			hot:                true,
 			static:             path.resolve(__dirname, './dist'),
 			historyApiFallback: true,
 		},
@@ -40,7 +39,7 @@ export default (env, argv) => {
 				'~Components': path.resolve(__dirname, 'src/Components'),
 				'~Pages':      path.resolve(__dirname, 'src/Pages'),
 			},
-			extensions: ['.js', '.jsx', '.ts', '.tsx'],
+			extensions: ['.tsx', '.ts', '.jsx', '.js'],
 		},
 		module:    {
 			rules: [
@@ -61,9 +60,9 @@ export default (env, argv) => {
 				{
 					test: /\.css$/,
 					use:  [
-						!isProduction
-							? 'style-loader'
-							: MiniCssExtractPlugin.loader,
+						isProduction
+							? MiniCssExtractPlugin.loader
+							: 'style-loader',
 						'css-loader',
 					],
 				},
@@ -89,7 +88,7 @@ export default (env, argv) => {
 			new CleanWebpackPlugin(),
 			new MiniCssExtractPlugin(),
 			new ESLintWebpackPlugin({
-				extensions: ['js', 'jsx', 'ts', 'tsx'],
+				extensions: ['tsx', 'ts', 'jsx', 'js'],
 			}),
 		],
 	};
