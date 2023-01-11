@@ -6,18 +6,14 @@ import { Close } from '~Assets/Icons';
 import styles                  from './TextInput.module.css';
 import type { TextInputProps } from './types';
 
-/**
- * TextInput allows users to enter text into an input field.
- *
- * @param {TextInputProps} props - The props for the TextInput component.
- * @returns {JSX.Element} The TextInput JSX element.
- */
+/** TextInput allows users to enter text into an input field. */
 export const TextInput = ({
 	clearable,
-	placeholder = '',
 	Icon,
+	placeholder = '',
+	value: defaultValue = '',
 }: TextInputProps): JSX.Element => {
-	const [value, setValue] = useState('');
+	const [value, setValue] = useState(defaultValue);
 
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.currentTarget.value);
@@ -30,7 +26,7 @@ export const TextInput = ({
 	return (
 		<div className={styles.root}>
 			<label className={styles.label}>
-				{Icon ? <Icon /> : null}
+				{Icon ? <Icon data-testid="icon" /> : null}
 				<input
 					className={styles.textField}
 					placeholder={placeholder}
@@ -42,6 +38,7 @@ export const TextInput = ({
 			{clearable && value ? (
 				<Close
 					className={styles.clearInput}
+					data-testid="clear-button"
 					onClick={handleClearInput}
 				/>
 			) : null}

@@ -15,7 +15,6 @@ export default {
 			mapping: icons,
 			control: {
 				defaultValue: null,
-				description:  'Icon',
 				type:         'select',
 				labels:       Object.keys(icons),
 			},
