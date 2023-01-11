@@ -37,7 +37,7 @@
 		"indent": ["warn", "tab"],
 		"jsx-quotes": ["warn", "prefer-double"],
 		"max-len": ["warn", { "code": 120 }],
-//		"no-console": "warn",
+		"no-console": "warn",
 		"prefer-const": "warn",
 		"quotes": ["warn", "single"],
 		"semi": ["warn", "always"],

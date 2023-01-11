@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput renders correctly 1`] = `
+<div>
+  <div
+    class="root"
+  >
+    <label
+      class="label"
+    >
+      <svg
+        data-testid="icon"
+      />
+      <input
+        class="textField"
+        placeholder="Search here..."
+        type="text"
+        value="Hello, world!"
+      />
+    </label>
+    <svg
+      class="clearInput"
+      data-testid="clear-button"
+    />
+  </div>
+</div>
+`;

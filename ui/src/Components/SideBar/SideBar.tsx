@@ -19,9 +19,7 @@ const getLinkClassName = ({ isActive }: { isActive: boolean }): string => (
 	isActive ? styles.linkActive : styles.link
 );
 
-/**
- * @returns {JSX.Element} The SideBar JSX element.
- */
+/** SideBar element. */
 export const SideBar = (): JSX.Element => {
 	return (
 		<div className={styles.root}>

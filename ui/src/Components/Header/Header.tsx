@@ -5,9 +5,7 @@ import { TextInput } from '~Components/TextInput';
 
 import styles from './Header.module.css';
 
-/**
- * @returns {JSX.Element} The Header JSX element.
- */
+/** Header element. */
 export const Header = (): JSX.Element => {
 	return (
 		<div className={styles.root}>
