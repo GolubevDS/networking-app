@@ -9,7 +9,7 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
 	};
 
 	const cssLoader = {
-		test: /\.css$/,
+		test: /\.s[ac]ss$/i,
 		use:  [
 			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
 			{
@@ -21,6 +21,7 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
 					},
 				},
 			},
+			'sass-loader',
 		],
 	};
 

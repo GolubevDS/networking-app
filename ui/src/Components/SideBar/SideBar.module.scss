@@ -1,5 +1,5 @@
 .root {
-	--background:    var(--color-accent-background);
+	--background:    var(--bg-contrast-color);
 	background:      var(--background);
 	display:         flex;
 	flex-direction:  column;
@@ -9,7 +9,7 @@
 }
 
 .logo {
-	fill:   var(--primary);
+	fill:   var(--primary-color);
 	margin: 16px 0;
 	width:  48px;
 	height: 48px;
@@ -24,22 +24,22 @@
 	justify-content: center;
 	align-items:     center;
 	transition:      var(--transition);
-}
 
-.link > svg, .linkActive > svg {
-	width:      24px;
-	height:     24px;
-	transition: var(--transition);
+	& > svg {
+		width:      24px;
+		height:     24px;
+		transition: var(--transition);
+	}
 }
 
 .link > svg {
-	fill: var(--primary);
+	fill: var(--primary-color);
 }
 
 .linkActive {
-	background: var(--primary);
-}
+	background: var(--primary-color);
 
-.linkActive > svg {
-	fill: var(--background);
+	& > svg {
+		fill: var(--background);
+	}
 }

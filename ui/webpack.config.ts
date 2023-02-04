@@ -9,6 +9,7 @@ function webpackConfig(env: BuildEnv): Configuration {
 		'~Assets':     path.resolve(__dirname, 'src', 'Assets'),
 		'~Components': path.resolve(__dirname, 'src', 'Components'),
 		'~Pages':      path.resolve(__dirname, 'src', 'Pages'),
+		'~Shared':     path.resolve(__dirname, 'src', 'Shared'),
 	};
 
 	const paths: BuildPaths = {
