@@ -1,8 +1,6 @@
 .root {
-	--font-size:     var(--font-size-body);
-	--line-height:   var(--font-line-height-body);
-	--icon-size:     var(--line-height);
-	border:          var(--border-width) solid var(--color-border);
+	--icon-size:     var(--font-line-m);
+	border:          var(--border-width) solid var(--border-color);
 	transition:      var(--transition);
 	border-radius:   6px;
 	display:         flex;
@@ -12,7 +10,7 @@
 }
 
 .root:focus-within, .root:has(.textField:not(:placeholder-shown)) {
-	border-color: var(--color-border-focus);
+	border-color: var(--border-focus-color);
 }
 
 svg {
@@ -27,36 +25,36 @@ svg {
 	display:         flex;
 	justify-content: flex-start;
 	align-items:     center;
-}
 
-.label > svg {
-	fill:         var(--color-border);
-	margin-right: .5em;
-	transition:   var(--transition);
+	& > svg {
+		fill:         var(--border-color);
+		margin-right: .5em;
+		transition:   var(--transition);
+	}
 }
 
 .label:focus-within > svg, .label:has(.textField:not(:placeholder-shown)) > svg {
-	fill: var(--color-border-focus);
+	fill: var(--border-focus-color);
 }
 
 .textField {
-	font-size:   var(--font-size);
-	line-height: var(--line-height);
-	width:       100%;
+	font:  var(--font-body);
+	color: var(--text-color);
+	width: 100%;
 }
 
 ::placeholder {
-	color: var(--color-text-placeholder);
+	color: var(--placeholder-color);
 }
 
 .clearInput {
-	fill:         var(--color-text);
+	fill:         var(--text-color);
 	transition:   var(--transition);
 	cursor:       pointer;
 	margin-left:  .5em;
 	margin-right: 1em;
-}
 
-.clearInput:hover {
-	fill: var(--primary-hover);
+	&:hover {
+		fill: var(--primary-hover-color);
+	}
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { Search }    from '~Assets/Icons';
 import { TextInput } from '~Components/TextInput';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 /** Header element. */
 export const Header = (): JSX.Element => {

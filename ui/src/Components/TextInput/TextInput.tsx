@@ -3,7 +3,7 @@ import type { ChangeEvent } from 'react';
 
 import { Close } from '~Assets/Icons';
 
-import styles                  from './TextInput.module.css';
+import styles                  from './TextInput.module.scss';
 import type { TextInputProps } from './types';
 
 /** TextInput allows users to enter text into an input field. */

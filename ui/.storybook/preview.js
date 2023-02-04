@@ -1,4 +1,4 @@
-import '../src/App/index.css';
+import '~App/index.scss';
 
 export const parameters = {
 	backgrounds: {

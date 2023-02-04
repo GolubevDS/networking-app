@@ -9,7 +9,7 @@ import {
 	Settings,
 } from '~Assets/Icons';
 
-import styles from './SideBar.module.css';
+import styles from './SideBar.module.scss';
 
 /**
  * @param {Object} params - The link's `isActive` state.
