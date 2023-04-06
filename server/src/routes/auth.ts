@@ -8,9 +8,8 @@ import { authRequest } from '../validators/auth';
 const
 	router = express.Router(),
 	prisma = new PrismaClient(),
-	authController = new AuthController(prisma);
-
-const BASE_URL = '/auth';
+	authController = new AuthController(prisma),
+	BASE_URL = '/auth';
 
 router.post(`${BASE_URL}/login`, validate(authRequest), (req, res) => authController.login(req, res));
 router.post(`${BASE_URL}/register`, validate(authRequest), (req, res) => authController.register(req, res));

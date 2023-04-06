@@ -82,7 +82,7 @@ class AuthController {
 	}
 
 	async generateJWT(data: { id: number, username: string }) {
-		jwt.sign(data, jwtSecret!, { expiresIn: '86400s' });
+		return jwt.sign(data, jwtSecret!, { expiresIn: '86400s' });
 	}
 
 	async comparePassword({ password, hashedPassword }: { password: string, hashedPassword: string }) {
