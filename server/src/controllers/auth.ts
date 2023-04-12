@@ -56,7 +56,7 @@ class AuthController {
 					data: {
 						username,
 						password: hashedPassword,
-						photo   : this.generateRandomAvatar(),
+						photo: this.generateRandomAvatar(),
 					},
 				}),
 				token = await this.generateJWT({ id: createdUser.id, username: createdUser.username }),

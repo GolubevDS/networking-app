@@ -4,7 +4,9 @@
 	"scripts": {
 		"dev": "nodemon",
 		"build": "rm -rf ./build && tsc",
-		"start": "node build/src/index.js"
+		"start": "node build/src/index.js",
+		"prisma:studio": "npx prisma studio",
+		"prisma:migrate": "npx prisma migrate dev --name init"
 	},
 	"devDependencies": {
 		"@types/bcrypt": "^5.0.0",

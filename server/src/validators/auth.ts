@@ -12,3 +12,4 @@ export const authRequest = yup.object({
 		.max(32, 'Password is too long!')
 		.required(),
 });
+

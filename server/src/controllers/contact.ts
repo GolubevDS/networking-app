@@ -2,6 +2,7 @@ import type { PrismaClient }      from '@prisma/client';
 import type { Request, Response } from 'express';
 
 import { handleServerError } from '../utils/contants';
+import { isIdExists }        from '../utils/isIdExists';
 
 interface ContactData {
 	userId: number;
@@ -12,10 +13,6 @@ interface ContactData {
 
 class ContactController {
 	constructor(private prisma: PrismaClient) {
-	}
-
-	private isIdExists(id?: number): id is number {
-		return typeof id === 'number';
 	}
 
 	private async newContact(data: ContactData, res: Response) {
@@ -38,12 +35,12 @@ class ContactController {
 		try {
 			const id = req.user?.id;
 
-			if (!this.isIdExists(id)) {
+			if (!isIdExists(id)) {
 				return res.status(400).json({ message: 'Invalid user ID provided!' });
 			}
 
 			const contacts = await this.prisma.contact.findMany({
-				where  : { userId: id },
+				where: { userId: id },
 				orderBy: { createdAt: 'asc' },
 			});
 
@@ -57,7 +54,7 @@ class ContactController {
 		try {
 			const id = req.user?.id;
 
-			if (!this.isIdExists(id)) {
+			if (!isIdExists(id)) {
 				return res.status(400).json({ message: 'Invalid user ID provided!' });
 			}
 
@@ -84,8 +81,8 @@ class ContactController {
 			if (foundConversation) {
 				const contact = await this.newContact({
 					username,
-					userId        : id,
-					photo         : relatedUser.photo,
+					userId: id,
+					photo: relatedUser.photo,
 					conversationId: foundConversation.id,
 				}, res);
 
@@ -93,12 +90,12 @@ class ContactController {
 			}
 
 			const conversation = await this.newConversation([id, relatedUser.id], res);
-			
+
 			if (conversation) {
 				const contact = await this.newContact({
 					username,
-					userId        : id,
-					photo         : relatedUser.photo,
+					userId: id,
+					photo: relatedUser.photo,
 					conversationId: conversation.id,
 				}, res);
 
