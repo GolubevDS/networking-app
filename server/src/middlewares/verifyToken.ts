@@ -17,7 +17,7 @@ export const verifyToken = () => async (req: Request, res: Response, next: NextF
 		const [_, token] = bearerToken.split(' ');
 
 		if (!jwtSecret) {
-			return res.status(500).json({ message: 'Could not found app secret!' });
+			return res.status(500).json({ message: 'Could not found App secret!' });
 		}
 
 		await jwt.verify(token, jwtSecret, (error, decodedUser) => {
